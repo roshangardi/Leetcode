@@ -1,3 +1,17 @@
+# Thought process:
+# Topological sort:
+# 1.Build graph:
+#   1.a map of character -> set of character.
+#   2.Also get in-degrees for each character. In-degrees will be a map of character -> integer.
+# 2.Topological sort:
+#   1.Loop through in-degrees. Offer the characters with in-degree of 0 to queue.
+#   2.While queue is not empty:
+#       1.Poll from queue. Append to character to result string.
+#       2.Decrease the in-degree of polled character's children by 1.
+#       3.If any child's in-degree decreases to 0, offer it to queue.
+#   3.At last, if result string's length is less than the number of vertices, that means there is a
+#       cycle in my graph. The order is invalid.
+
 from collections import defaultdict, Counter, deque
 
 
