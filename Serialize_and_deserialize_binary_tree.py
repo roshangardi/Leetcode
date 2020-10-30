@@ -1,5 +1,8 @@
-# Not completely efficient, try to optimize it further.
-# Definition for a binary tree node.
+# Optimized Code || Check Git history for previous version of slower code.
+# Here we learned about defining function inside another function.
+# Also most important is how we avoid use "for loop" by using iter built in function to iterate through the list.
+# Because "for loop" wouldn't work in this scenario due to use of recursion.
+# We can get through this also using global index and increment it with every recursion, but iter is better&cleaner.
 
 class TreeNode(object):
     def __init__(self, x):
@@ -7,68 +10,32 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
 class Codec:
-    ser_string = ""
 
     def serialize(self, root):
-
-        if not root:
-            self.ser_string += "# "
-            return
-
-        self.ser_string += str(root.val)+" "
-
-        self.serialize(root.left)
-        self.serialize(root.right)
-
-        return self.ser_string.split(" ")
-
-        """Encodes a tree to a single string.
-
-        :type root: TreeNode
-        :rtype: str
-        """
-
-    indexes = 0
+        def serialize_util(node):
+            if not node:
+                temp_list.append("#")
+            else:
+                temp_list.append(str(node.val))
+                serialize_util(node.left)
+                serialize_util(node.right)
+        temp_list = []
+        serialize_util(root)
+        return ' '.join(temp_list)
 
     def deserialize(self, data):
-
-        if not data:
-            return None
-
-        if self.indexes > len(data):
-            return None
-
-        if data[self.indexes] == "#" or data[self.indexes] is None:
-            self.indexes += 1
-            return None
-
-        node1 = TreeNode(data[self.indexes])
-        self.indexes += 1
-        node1.left = self.deserialize(data)
-        node1.right = self.deserialize(data)
-
-        return node1
-
-        """Decodes your encoded data to tree.
-
-        :type data: str
-        :rtype: TreeNode
-        """
-
-
-# Your Codec object will be instantiated and called as such:
-# ser = Codec()
-# deser = Codec()
-# ans = deser.deserialize(ser.serialize(root))
+        def deserialize_util():
+            val = next(list_iterator)
+            if val == "#":
+                return None
+            node = TreeNode(int(val))
+            node.left = deserialize_util()
+            node.right = deserialize_util()
+            return node
+        temp_list = data.split(" ")
+        list_iterator = iter(temp_list)
+        return deserialize_util()
 
 master = TreeNode(1)
 master.left = TreeNode(9)
@@ -80,7 +47,3 @@ sol = Codec()
 returnvalue = sol.serialize(master)
 print(returnvalue)
 print(sol.deserialize(returnvalue).val)
-
-# sol = Codec()
-# returnvalue = sol.serialize(None)
-# print(sol.deserialize(returnvalue))
