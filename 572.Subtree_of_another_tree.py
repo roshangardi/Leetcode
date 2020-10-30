@@ -10,9 +10,9 @@ class Solution:
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
 
         def subtree_util(s, t):
-            if not s and not t:
+            if not (s and t):
                 return True
-            if not s or not t:
+            if not (s or t):
                 return False
 
             if s.val == t.val:
