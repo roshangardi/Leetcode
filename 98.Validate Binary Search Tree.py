@@ -1,6 +1,11 @@
-# This problem consumed good few hours and still couldn't solve on my own.
-# Solution from Youtube: https://www.youtube.com/watch?v=Z_-h_mpDmeg&ab_channel=KevinNaughtonJr.
-# Draw tree diagram for each below commented code and walk through the code for each.
+"""
+This problem consumed good few hours and still couldn't solve on my own.
+I was trying Bottom up approach: i.e.(The current node, Left subtree and right subtree of each node should be valid bst)
+Couldn't solve, Self Note: Try it again in the future and see if I can solve.
+Solution from Youtube: https://www.youtube.com/watch?v=Z_-h_mpDmeg&ab_channel=KevinNaughtonJr.
+Draw tree diagram for each below commented code and walk through the code for each.
+Below is Top-Down Approach:
+"""
 
 
 class TreeNode:
