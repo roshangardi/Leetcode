@@ -1,4 +1,5 @@
 # My own version of the code.
+# Optimize further by reducing the search time of finding the index, from O(n) to O(1) by using dictionary.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -26,7 +27,6 @@ inorder = [1,4,2,3,5]
 
 sol = Solution()
 master = sol.buildTree(preorder, inorder)
-print("************************")
 print(master.val)
 print(master.right.val)
 print(master.left.val)
