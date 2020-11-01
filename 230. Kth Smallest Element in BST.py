@@ -23,6 +23,7 @@ This code has 2 problems:
 decrements the k value till it reaches zero and then returns that result. So zero space utilization.
 """
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -33,18 +34,21 @@ class TreeNode:
 class Solution:
 
     def kthSmallestutil(self, root: TreeNode) -> int:
+        if self.found:  # To exit as soon as possible
+            return
         if not root:
             return
-
         self.kthSmallestutil(root.left)
         self.k -= 1
         if self.k == 0:
             self.result = root.val
+            self.found = True
             return
         self.kthSmallestutil(root.right)
 
     def kthSmallest(self, root: TreeNode, k: int) -> int:
         self.result = None
+        self.found = False  # To exit as soon as possible
         self.k = k
         self.kthSmallestutil(root)
         return self.result
@@ -60,5 +64,3 @@ master.left.right = TreeNode(3)
 
 sol = Solution()
 print(sol.kthSmallest(master, 2))
-
-
