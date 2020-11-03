@@ -1,4 +1,8 @@
+# This algorithm not only works for 2 node (i.e p and q) but can work for any number of nodes to
+# find the ancestor of all those nodes. Just add the nodes in function definition.
+
 class TreeNode:
+
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
