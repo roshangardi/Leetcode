@@ -105,7 +105,8 @@ class Trie:
                 currnode = currnode.trielist[prefix[index]]
                 return startsWithutil(prefix, currnode, index + 1)
             return False
-        return startsWithutil(prefix, currnode,index)
+
+        return startsWithutil(prefix, currnode, index)
 
 
 class Node:
