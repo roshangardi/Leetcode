@@ -1,6 +1,8 @@
 # Developed this on my own after reading of algorithm:
 # Algorithm is : compare first element in each list, whichever ele is smaller, create its node and increment
 # the pointer for that list
+# Read comments for why recursive approach can lead to stackoverflow error for large lists:
+# https://leetcode.com/problems/merge-two-sorted-lists/discuss/9713/A-recursive-solution
 
 class Node:
     def __init__(self, x):
@@ -16,6 +18,8 @@ class Solution:
             return node2    # No need to create new nodes for remaining nodes, we can just point it to existing node.
         if not node2:
             return node1
+        # if not node1 or not node2:  # Above can also be written in this manner
+        #     return node1 or node2
 
         if node1.val == node2.val:
             newnode = Node(node1.val)   # Could have also used node2, doesn't matter since node values are same
