@@ -1,4 +1,5 @@
 # For K-lists, this code only uses min-heap of size "k" in a given time.
+# This code partially uses min heap and needs extra space.
 import heapq
 
 

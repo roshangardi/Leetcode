@@ -44,6 +44,7 @@ class Solution:
         mid, highnext = self.findmiddle(low)
         left = self.mergesortutil(low, mid)
         right = self.mergesortutil(highnext, high)
+        # print(left.val,right.val)
         newlist = self.mergeTwoLists(left, right)
         return newlist
 
