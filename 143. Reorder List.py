@@ -2,6 +2,8 @@
 # 1) Find the middle of the linked list and divide it into 2 different linked list from the middle.
 # 2) Reverse the second divided part of the linked list.
 # 3) Merge both the linked list in such a manner that it takes one element from each list at a time.
+# To summarize: First cut the linkedlist in half, then reverse the second half, loop the two halves,
+# and connect one by one from both halves.
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -11,8 +13,8 @@ class ListNode:
 
 class Solution:
     def reorderList(self, head: ListNode) -> None:
-        if not head or (not head.next or not head.next.next):
-            return
+        if not head or not head.next or not head.next.next:  # If list contains only 2 nodes, there is no need to
+            return                                           # process further.
 
         new_head = self.break_at_middle(head)   # Step 1
         second_head = self.reverse_list(new_head)  # Step 2
@@ -57,7 +59,7 @@ node = ListNode(1)
 node.next = ListNode(2)
 node.next.next = ListNode(3)
 node.next.next.next = ListNode(4)
-node.next.next.next.next = ListNode(5)
+# node.next.next.next.next = ListNode(5)
 
 sol = Solution()
 sol.reorderList(node)
