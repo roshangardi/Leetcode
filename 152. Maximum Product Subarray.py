@@ -32,7 +32,6 @@ print(result)
 
 """
 https://medium.com/@aliasav/algorithms-maximum-product-subarray-b09e520b4baf:
-
 Intuition:
 This solution is similar to Kadane’s algorithm where we keep track of recent history and compute the latest 
 solution in each iteration of the given array. Now since the array can contain positive or negative integers, 
@@ -51,4 +50,5 @@ A few important concepts we touched: dynamic programming, arrays, Kadan’s algo
 build up an intuition for solving dynamic programming problems. The trick I found is to: 1)master recursion 2)build 
 an ability to form recursive solutions of given problems 3)practice top-down and bottom-up ways to solve a DP problem 
 4)identify intermediate data structures to be used
+This video: https://www.youtube.com/watch?v=5dRGRueKU3M&ab_channel=AbdulBari is excellent to understand above 4 concepts
 """
